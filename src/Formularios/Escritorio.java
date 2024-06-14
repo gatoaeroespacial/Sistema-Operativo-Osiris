@@ -3,39 +3,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Formularios;
+
 import Clases.helper;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 /**
  *
  * @author juanm
  */
-
 public class Escritorio extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-     private JLabel horaLabel;
+    private JLabel horaLabel;
+    private boolean culebrita = false;
+
     public Escritorio() {
-         iniciarReloj();
+        iniciarReloj();
         initComponents();
-   
-         // Crear un panel para el escritorio con fondo azul oscuro
+
         JPanel panel = jPanel1;
-        panel.setBackground(new Color (0, 0, 50)); // Azul oscuro (RGB: 0, 0, 50)
+        panel.setBackground(new Color(0, 0, 50)); // Azul oscuro (RGB: 0, 0, 50)
         ImageIcon imagen = new ImageIcon("src/images/inicio.jpg");
         Image imagen2 = imagen.getImage();
-        
-        panel.imageUpdate(imagen2, 0,0,100,1000,100);
+
+        panel.imageUpdate(imagen2, 0, 0, 100, 1000, 100);
         //como importar la imagen que esta al mismo nivel que el archivo
         //como saber si la imagen se cargo correctamente
-        if(imagen.getImageLoadStatus() == MediaTracker.ERRORED){
+        if (imagen.getImageLoadStatus() == MediaTracker.ERRORED) {
             System.out.println("Error al cargar la imagen");
         }
         /*
@@ -46,7 +50,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         panel.add(imagenLabel, BorderLayout.NORTH);
                   this.repaint();
-        */
+         */
 
         // Crear un JLabel para el texto "OSIRIS"
         JLabel label = new JLabel("OSIRIS");
@@ -62,27 +66,26 @@ public class Escritorio extends javax.swing.JFrame {
         footerPanel.setPreferredSize(new Dimension(getWidth(), 50)); // Altura de 50 píxeles
 
         // Crear un layout de FlowLayout para el footer
-       // FlowLayout flowLayout = new FlowLayout();
+        // FlowLayout flowLayout = new FlowLayout();
         //flowLayout.setAlignment(FlowLayout.LEFT); // Alinear los componentes a la izquierda
         //footerPanel.setLayout(flowLayout);
         ImageIcon icono = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\inicio.jpg"); // Reemplaza con la ruta de tu icono
         Image image = icono.getImage();
-        image = image.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH); 
+        image = image.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono = new ImageIcon(image);
         jLabel2.setIcon(icono);
 
         ImageIcon icono2 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\begin.jpg"); // Reemplaza con la ruta de tu icono
         Image image2 = icono2.getImage();
-        image2 = image2.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH); 
+        image2 = image2.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono2 = new ImageIcon(image2);
         jLabel3.setIcon(icono2);
-        
-         
+
         ImageIcon icono3 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\music.jpg"); // Reemplaza con la ruta de tu icono
         Image image3 = icono3.getImage();
-        image3 = image3.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH); 
+        image3 = image3.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono3 = new ImageIcon(image3);
 
@@ -90,35 +93,43 @@ public class Escritorio extends javax.swing.JFrame {
 
         ImageIcon icono4 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\Calculadora.jpg"); // Reemplaza con la ruta de tu icono
         Image image4 = icono4.getImage();
-        image4 = image4.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH); 
+        image4 = image4.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono4 = new ImageIcon(image4);
 
         JLabel iconoLabel4 = new JLabel(icono4);
 
+        ImageIcon icono5 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\snake.jpg"); // Reemplaza con la ruta de tu icono
+        Image image5 = icono5.getImage();
+        image5 = image5.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+
+        icono5 = new ImageIcon(image5);
+
+        JLabel iconoLabel5 = new JLabel(icono5);
+
         jLabel4.setIcon(icono3);
         jLabel5.setIcon(icono4);
-       
+        jLabel6.setIcon(icono5);
 
         btnRegistrar.setSize(50, 50);
-       horaLabel = jLabel1;
-       
+        horaLabel = jLabel1;
+
         jLabel2.setText("");
         jLabel3.setText("");
         jLabel4.setText("");
         jLabel5.setText("");
-        //jLabel6.setText("");
+        jLabel6.setText("");
+        
         horaLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
         horaLabel.setForeground(Color.WHITE);
         pack();
 
-        
         // Agregar el footer al panel principal
         panel.add(footerPanel, BorderLayout.SOUTH);
 
         // Agregar el panel al frame
         add(panel);
-        
+
         // Mostrar el frame
         setVisible(true);
         System.out.println("holalalas");
@@ -196,6 +207,11 @@ public class Escritorio extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         jLabel6.setText("jLabel6");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("jLabel5");
 
@@ -273,13 +289,23 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        
-               
-        Culebrita snake = new Culebrita();
-         snake.setVisible(true);
-        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        if (!culebrita) {
+            Culebrita snake = new Culebrita();
+            snake.setVisible(true);
+            this.culebrita = true;
+            snake.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    culebrita = false;
+                }
+            });
+        }
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -316,8 +342,7 @@ public class Escritorio extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
     private void iniciarReloj() {
         Timer timer = new Timer(1000, new ActionListener() {
             @Override
