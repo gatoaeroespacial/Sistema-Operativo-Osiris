@@ -14,9 +14,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+//  C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images
 
 /**
  *
+ * 
+ * 
  * @author juanm
  */
 public class Escritorio extends javax.swing.JFrame {
@@ -26,6 +29,9 @@ public class Escritorio extends javax.swing.JFrame {
      */
     private JLabel horaLabel;
     private boolean culebrita = false;
+        private boolean musica= false;
+        private boolean calculadora= false;
+
 
     public Escritorio() {
         iniciarReloj();
@@ -69,21 +75,21 @@ public class Escritorio extends javax.swing.JFrame {
         // FlowLayout flowLayout = new FlowLayout();
         //flowLayout.setAlignment(FlowLayout.LEFT); // Alinear los componentes a la izquierda
         //footerPanel.setLayout(flowLayout);
-        ImageIcon icono = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\inicio.jpg"); // Reemplaza con la ruta de tu icono
+        ImageIcon icono = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\inicio.jpg"); // Reemplaza con la ruta de tu icono
         Image image = icono.getImage();
         image = image.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono = new ImageIcon(image);
         jLabel2.setIcon(icono);
 
-        ImageIcon icono2 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\begin.jpg"); // Reemplaza con la ruta de tu icono
+        ImageIcon icono2 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\begin.jpg"); // Reemplaza con la ruta de tu icono
         Image image2 = icono2.getImage();
         image2 = image2.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
         icono2 = new ImageIcon(image2);
         jLabel3.setIcon(icono2);
 
-        ImageIcon icono3 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\music.jpg"); // Reemplaza con la ruta de tu icono
+        ImageIcon icono3 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\music.jpg"); // Reemplaza con la ruta de tu icono
         Image image3 = icono3.getImage();
         image3 = image3.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
@@ -91,7 +97,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         JLabel iconoLabel3 = new JLabel(icono3);
 
-        ImageIcon icono4 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\Calculadora.jpg"); // Reemplaza con la ruta de tu icono
+        ImageIcon icono4 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\Calculadora.jpg"); // Reemplaza con la ruta de tu icono
         Image image4 = icono4.getImage();
         image4 = image4.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
@@ -99,7 +105,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         JLabel iconoLabel4 = new JLabel(icono4);
 
-        ImageIcon icono5 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\Sistemas Operativos\\ProyectoOsiris\\src\\images\\snake.jpg"); // Reemplaza con la ruta de tu icono
+        ImageIcon icono5 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\snake.jpg"); // Reemplaza con la ruta de tu icono
         Image image5 = icono5.getImage();
         image5 = image5.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
 
@@ -289,7 +295,14 @@ public class Escritorio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-
+        //musica
+        System.out.println("hoal");
+             
+        java.awt.Frame parentFrame = new javax.swing.JFrame();
+        MusicaPlayer musicDialog = new MusicaPlayer(parentFrame, true,"");
+        musicDialog.setVisible(true);
+        
+      
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel3MouseClicked
 
