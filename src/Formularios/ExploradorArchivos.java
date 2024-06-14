@@ -59,7 +59,13 @@ public class ExploradorArchivos extends javax.swing.JFrame {
                             fileTree.setSelectionPath(fileTree.getSelectionPath().pathByAddingChild(new DefaultMutableTreeNode(selectedFile)));
                             updatePathLabel(selectedFile);
                         } else {
-                            openFile(selectedFile);
+                            if (fileName.toLowerCase().endsWith(".jpg") || fileName.toLowerCase().endsWith(".png") || fileName.toLowerCase().endsWith(".gif")) {
+                                new ImagePlayer(ExploradorArchivos.this, true, selectedFile.getAbsolutePath()).setVisible(true);
+                            } else if (fileName.endsWith(".mp3")) {
+                                new MusicaPlayer(ExploradorArchivos.this, true, selectedFile.getAbsolutePath()).setVisible(true);
+                            } else {
+                                openFile(selectedFile);
+                            }
                         }
                     }
                 }
@@ -149,7 +155,7 @@ public class ExploradorArchivos extends javax.swing.JFrame {
         if (selectedNode != null) {
             File selectedFile = (File) selectedNode.getUserObject();
             File parentFile = selectedFile.getParentFile();
-            if (parentFile != null && !parentFile.equals(rootDirectory)) {
+            if (parentFile != null && !parentFile.equals(rootDirectory.getParentFile())) {  // no ir más allá del directorio raíz
                 populateTable(parentFile);
                 updatePathLabel(parentFile);
                 // Navigate to parent in tree
@@ -300,7 +306,7 @@ public class ExploradorArchivos extends javax.swing.JFrame {
         searchField = new JTextField(20);
         searchButton = new JButton("Buscar");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         treeScrollPane.setViewportView(fileTree);
         splitPane.setLeftComponent(treeScrollPane);
@@ -318,14 +324,10 @@ public class ExploradorArchivos extends javax.swing.JFrame {
             }
         });
         fileTable.setBorder(null);
-        System.out.println(fileTable.getColumn("Size"));
-        
 
         DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
-        
         cellRenderer.setHorizontalAlignment(SwingConstants.LEFT);
         fileTable.getColumn("Size").setCellRenderer(cellRenderer);
-
         cellRenderer.setBorder(null);
         fileTable.setDefaultRenderer(Object.class, cellRenderer);
 
@@ -376,7 +378,7 @@ public class ExploradorArchivos extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSplitPane1 = new javax.swing.JSplitPane();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jScrollPane1.setViewportView(jTree1);
 

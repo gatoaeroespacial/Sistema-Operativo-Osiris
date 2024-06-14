@@ -284,7 +284,7 @@ public class Inicio extends javax.swing.JFrame {
     private void btnEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntryActionPerformed
         // TODO add your handling code here:
         consultas con = new consultas();
-        System.out.println(jTextPass.getText());
+   
         con.consultarUsuario(jTextUser.getText(), jTextPass.getText(),this);
     }//GEN-LAST:event_btnEntryActionPerformed
    public static void main(String args[]) {

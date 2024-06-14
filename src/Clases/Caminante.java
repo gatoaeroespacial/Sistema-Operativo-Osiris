@@ -40,7 +40,7 @@ public class Caminante implements Runnable{
     }
     
     public void Continuar(){
-        System.out.println("continua");
+      
         panel.revalidate();
         panel.repaint();
                 

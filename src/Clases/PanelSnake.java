@@ -97,7 +97,7 @@ public class PanelSnake extends JPanel {
             }
         }
         if (existe) {
-            System.out.println("perdio");
+             
             camino.Parar();
             JOptionPane.showMessageDialog(this, "has perdido tu puntuacion fue de: " + puntos);
 
@@ -108,7 +108,7 @@ public class PanelSnake extends JPanel {
         } else {
 
             if (nuevo[0] == comida[0] && nuevo[1] == comida[1]) {
-                // System.out.println("comio");
+                
                 snake.add(nuevo);
                 if (camino.time > 150) {
                     camino.time = camino.time - 10;

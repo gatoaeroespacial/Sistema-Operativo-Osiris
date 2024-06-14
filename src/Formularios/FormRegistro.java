@@ -18,6 +18,7 @@ public class FormRegistro extends javax.swing.JFrame {
      */
     public FormRegistro() {
         initComponents();
+        
         this.setLocationRelativeTo(this);
     }
 
@@ -41,7 +42,8 @@ public class FormRegistro extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jTextNombre = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(102, 45, 248));
 

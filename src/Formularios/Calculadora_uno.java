@@ -6,9 +6,15 @@
 package Formularios;
 
 import Clases.Metodos;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -25,56 +31,12 @@ public class Calculadora_uno extends javax.swing.JFrame {
         initComponents();
 
         this.setLocationRelativeTo(null);
-
-        this.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                switch (keyCode) {
-                    case KeyEvent.VK_0:
-                    case KeyEvent.VK_1:
-                    case KeyEvent.VK_2:
-                    case KeyEvent.VK_3:
-                    case KeyEvent.VK_4:
-                    case KeyEvent.VK_5:
-                    case KeyEvent.VK_6:
-                    case KeyEvent.VK_7:
-                    case KeyEvent.VK_8:
-                    case KeyEvent.VK_9:
-                        txt.setText(metodox.concatenamiento(String.valueOf(keyCode - KeyEvent.VK_0)));
-                        break;
-                    case KeyEvent.VK_PLUS:
-                    case KeyEvent.VK_ADD:
-                        metodox.suma(txt.getText());
-                        break;
-                    case KeyEvent.VK_MINUS:
-                    case KeyEvent.VK_SUBTRACT:
-                        metodox.resta(txt.getText());
-                        break;
-                    case KeyEvent.VK_MULTIPLY:
-                        metodox.multiplicacion(txt.getText());
-                        break;
-                    case KeyEvent.VK_DIVIDE:
-                        metodox.division(txt.getText());
-                        break;
-                    case KeyEvent.VK_EQUALS:
-                    case KeyEvent.VK_ENTER:
-                        txt.setText("" + metodox.resultado(txt.getText()));
-                        break;
-
-                    case KeyEvent.VK_BACK_SPACE:
-                        txt.setText("");
-                        metodox.borrar();
-                        break;
-                    // Agrega más casos para otras teclas si es necesario
-                }
-            }
-        });
-
         // Necesario para que el JFrame reciba los eventos de teclado
         this.setFocusable(true);
         this.requestFocusInWindow();
-
+        
+        
+        configureKeyBindings();
     }
 
     /**
@@ -112,14 +74,14 @@ public class Calculadora_uno extends javax.swing.JFrame {
         btnalcuadrado = new javax.swing.JButton();
         btn_alapotencia = new javax.swing.JButton();
         btn_4 = new javax.swing.JButton();
-        btn_cotangente1 = new javax.swing.JButton();
+        btn_C = new javax.swing.JButton();
         btn_5 = new javax.swing.JButton();
         btn_6 = new javax.swing.JButton();
         btn_7 = new javax.swing.JButton();
 
         jRadioButton1.setText("jRadioButton1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(50, 50));
         setMinimumSize(new java.awt.Dimension(50, 50));
 
@@ -404,18 +366,18 @@ public class Calculadora_uno extends javax.swing.JFrame {
             }
         });
 
-        btn_cotangente1.setBackground(java.awt.Color.darkGray);
-        btn_cotangente1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btn_cotangente1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_cotangente1.setText("C");
-        btn_cotangente1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_C.setBackground(java.awt.Color.darkGray);
+        btn_C.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btn_C.setForeground(new java.awt.Color(255, 255, 255));
+        btn_C.setText("C");
+        btn_C.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_cotangente1MouseClicked(evt);
+                btn_CMouseClicked(evt);
             }
         });
-        btn_cotangente1.addActionListener(new java.awt.event.ActionListener() {
+        btn_C.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cotangente1ActionPerformed(evt);
+                btn_CActionPerformed(evt);
             }
         });
 
@@ -510,7 +472,7 @@ public class Calculadora_uno extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btn_cosecante)
                                     .addComponent(btn_secante)
-                                    .addComponent(btn_cotangente1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btn_C, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnalcuadrado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -560,7 +522,7 @@ public class Calculadora_uno extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(btn_division, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btn_raiz, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_cotangente1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btn_C, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
@@ -585,7 +547,69 @@ public class Calculadora_uno extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+   private void configureKeyBindings() {
+        // Obtener el InputMap y ActionMap del JPanel principal
+        InputMap inputMap = this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        ActionMap actionMap = this.getRootPane().getActionMap();
 
+        // Asocia las teclas con las acciones
+        for (int i = 0; i <= 9; i++) {
+            final String key = String.valueOf(i);
+            inputMap.put(KeyStroke.getKeyStroke(key), key);
+            actionMap.put(key, new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    txt.setText(metodox.concatenamiento(key));
+                }
+            });
+        }
+
+        inputMap.put(KeyStroke.getKeyStroke('+'), "PLUS");
+        inputMap.put(KeyStroke.getKeyStroke('-'), "MINUS");
+        inputMap.put(KeyStroke.getKeyStroke('*'), "MULTIPLY");
+        inputMap.put(KeyStroke.getKeyStroke('/'), "DIVIDE");
+        inputMap.put(KeyStroke.getKeyStroke('='), "EQUALS");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "EQUALS");
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_BACK_SPACE, 0), "BACK_SPACE");
+
+        actionMap.put("PLUS", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                metodox.suma(txt.getText());
+            }
+        });
+        actionMap.put("MINUS", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                metodox.resta(txt.getText());
+            }
+        });
+        actionMap.put("MULTIPLY", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                metodox.multiplicacion(txt.getText());
+            }
+        });
+        actionMap.put("DIVIDE", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                metodox.division(txt.getText());
+            }
+        });
+        actionMap.put("EQUALS", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                txt.setText("" + metodox.resultado(txt.getText()));
+            }
+        });
+        actionMap.put("BACK_SPACE", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                txt.setText("");
+                metodox.borrar();
+            }
+        });
+    }
     private void btn_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_1MouseClicked
 
         txt.setText(metodox.concatenamiento("1"));
@@ -700,13 +724,15 @@ public class Calculadora_uno extends javax.swing.JFrame {
         metodox.alcuadrado(txt.getText()); // TODO add your handling code here:
     }//GEN-LAST:event_btnalcuadradoActionPerformed
 
-    private void btn_cotangente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cotangente1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cotangente1MouseClicked
+    private void btn_CMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CMouseClicked
+        txt.setText("");
+        metodox.borrar();
 
-    private void btn_cotangente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cotangente1ActionPerformed
+    }//GEN-LAST:event_btn_CMouseClicked
+
+    private void btn_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_cotangente1ActionPerformed
+    }//GEN-LAST:event_btn_CActionPerformed
 
     private void txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActionPerformed
         // TODO add your handling code here:
@@ -758,11 +784,11 @@ public class Calculadora_uno extends javax.swing.JFrame {
     private javax.swing.JButton btn_7;
     private javax.swing.JButton btn_8;
     private javax.swing.JButton btn_9;
+    private javax.swing.JButton btn_C;
     private javax.swing.JButton btn_alapotencia;
     private javax.swing.JButton btn_cosecante;
     private javax.swing.JButton btn_coseno;
     private javax.swing.JButton btn_cotangente;
-    private javax.swing.JButton btn_cotangente1;
     private javax.swing.JButton btn_division;
     private javax.swing.JButton btn_igual;
     private javax.swing.JButton btn_mas;

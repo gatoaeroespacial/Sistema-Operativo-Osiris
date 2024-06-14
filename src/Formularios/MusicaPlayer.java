@@ -32,7 +32,7 @@ public class MusicaPlayer extends javax.swing.JDialog
     }
    private void iniciopt(String path) {                                        
         if(path.equals("")){
-            System.out.println("hola");
+            
         }else{
          MC.Play(path);
          isplay= true;

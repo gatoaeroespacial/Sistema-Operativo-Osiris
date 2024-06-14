@@ -3,14 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Inicio.java</file>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Images/begin.jpg</file>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/MusicaPlayer.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/PanelSnake.java</file>
             <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/ExploradorArchivos.java</file>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/MainClass.java</file>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Images/inicio.jpg</file>
-            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/consultas.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/helper.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/ConexionDB.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/FormRegistro.java</file>
             <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Escritorio.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Inicio.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/ImagePlayer.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Culebrita.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/Metodos.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Calculadora_uno.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/MusicaPlayer.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Formularios/Salvapantallas.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/MainClass.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/PanelFondoC.java</file>
+            <file>file:/C:/Users/juanm/OneDrive/Documentos/NetBeansProjects/SOsiris/src/Clases/Caminante.java</file>
         </group>
     </open-files>
 </project-private>

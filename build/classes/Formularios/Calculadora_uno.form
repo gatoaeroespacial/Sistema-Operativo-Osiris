@@ -11,7 +11,7 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[50, 50]"/>
     </Property>
@@ -110,7 +110,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btn_cosecante" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_secante" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_cotangente1" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Component id="btn_C" min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -174,7 +174,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btn_division" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_raiz" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="btn_cotangente1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="btn_C" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -703,7 +703,7 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_4MouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_cotangente1">
+        <Component class="javax.swing.JButton" name="btn_C">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="40" green="40" id="darkGray" palette="1" red="40" type="palette"/>
@@ -717,8 +717,8 @@
             <Property name="text" type="java.lang.String" value="C"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_cotangente1MouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cotangente1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_CMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_5">

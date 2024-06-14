@@ -18,8 +18,8 @@ import java.util.Date;
 
 /**
  *
- * 
- * 
+ *
+ *
  * @author juanm
  */
 public class Escritorio extends javax.swing.JFrame {
@@ -29,14 +29,15 @@ public class Escritorio extends javax.swing.JFrame {
      */
     private JLabel horaLabel;
     private boolean culebrita = false;
-        private boolean musica= false;
-        private boolean calculadora= false;
+    private boolean musica = false;
+    private boolean calculadora = false;
+    private boolean explorer = false;
+    private String pathU;
 
-
-    public Escritorio() {
+    public Escritorio(String pathU) {
         iniciarReloj();
         initComponents();
-
+        this.pathU = pathU;
         JPanel panel = jPanel1;
         panel.setBackground(new Color(0, 0, 50)); // Azul oscuro (RGB: 0, 0, 50)
         ImageIcon imagen = new ImageIcon("src/images/inicio.jpg");
@@ -77,21 +78,21 @@ public class Escritorio extends javax.swing.JFrame {
         //footerPanel.setLayout(flowLayout);
         ImageIcon icono = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\inicio.jpg"); // Reemplaza con la ruta de tu icono
         Image image = icono.getImage();
-        image = image.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        image = image.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
 
         icono = new ImageIcon(image);
         jLabel2.setIcon(icono);
 
         ImageIcon icono2 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\begin.jpg"); // Reemplaza con la ruta de tu icono
         Image image2 = icono2.getImage();
-        image2 = image2.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        image2 = image2.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
 
         icono2 = new ImageIcon(image2);
         jLabel3.setIcon(icono2);
 
         ImageIcon icono3 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\music.jpg"); // Reemplaza con la ruta de tu icono
         Image image3 = icono3.getImage();
-        image3 = image3.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        image3 = image3.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
 
         icono3 = new ImageIcon(image3);
 
@@ -99,7 +100,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         ImageIcon icono4 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\Calculadora.jpg"); // Reemplaza con la ruta de tu icono
         Image image4 = icono4.getImage();
-        image4 = image4.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        image4 = image4.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
 
         icono4 = new ImageIcon(image4);
 
@@ -107,7 +108,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         ImageIcon icono5 = new ImageIcon("C:\\Users\\juanm\\OneDrive\\Documentos\\NetBeansProjects\\SOsiris\\src\\Images\\snake.jpg"); // Reemplaza con la ruta de tu icono
         Image image5 = icono5.getImage();
-        image5 = image5.getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH);
+        image5 = image5.getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH);
 
         icono5 = new ImageIcon(image5);
 
@@ -117,7 +118,7 @@ public class Escritorio extends javax.swing.JFrame {
         jLabel5.setIcon(icono4);
         jLabel6.setIcon(icono5);
 
-        btnRegistrar.setSize(50, 50);
+   
         horaLabel = jLabel1;
 
         jLabel2.setText("");
@@ -125,8 +126,8 @@ public class Escritorio extends javax.swing.JFrame {
         jLabel4.setText("");
         jLabel5.setText("");
         jLabel6.setText("");
-        
-        horaLabel.setFont(new java.awt.Font("Tahoma", 0, 20));
+
+        horaLabel.setFont(new java.awt.Font("Tahoma", 0, 28));
         horaLabel.setForeground(Color.WHITE);
         pack();
 
@@ -138,7 +139,7 @@ public class Escritorio extends javax.swing.JFrame {
 
         // Mostrar el frame
         setVisible(true);
-        System.out.println("holalalas");
+ 
     }
 
     /**
@@ -154,7 +155,6 @@ public class Escritorio extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnRegistrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -188,20 +188,14 @@ public class Escritorio extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(102, 45, 248));
 
-        btnRegistrar.setBackground(new java.awt.Color(0, 0, 102));
-        btnRegistrar.setFont(new java.awt.Font("Lucida Sans", 1, 14)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrar.setText("Registrarse");
-        btnRegistrar.setBorder(null);
-        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("jLabel1");
 
         jLabel2.setText("jLabel2");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("jLabel3");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,6 +205,11 @@ public class Escritorio extends javax.swing.JFrame {
         });
 
         jLabel4.setText("jLabel4");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel6.setText("jLabel6");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,6 +219,11 @@ public class Escritorio extends javax.swing.JFrame {
         });
 
         jLabel5.setText("jLabel5");
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -236,19 +240,16 @@ public class Escritorio extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 770, Short.MAX_VALUE)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(155, 155, 155)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1047, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(16, 16, 16))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
+                .addGap(0, 19, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
@@ -265,7 +266,7 @@ public class Escritorio extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(633, Short.MAX_VALUE)
+                .addContainerGap(645, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -287,23 +288,20 @@ public class Escritorio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
-        //this.setVisible(false);
-        FormRegistro form = new FormRegistro();
-        form.setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
-
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        //musica
-        System.out.println("hoal");
-             
-        java.awt.Frame parentFrame = new javax.swing.JFrame();
-        MusicaPlayer musicDialog = new MusicaPlayer(parentFrame, true,"");
-        musicDialog.setVisible(true);
-        
-      
-        // TODO add your handling code here:
+        //explorador 
+
+        if (!explorer) {
+            ExploradorArchivos exp = new ExploradorArchivos(this.pathU);
+            exp.setVisible(true);
+            this.explorer = true;
+            exp.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    explorer = false;
+                }
+            });
+        }
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -319,6 +317,38 @@ public class Escritorio extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        //musica
+        
+
+        java.awt.Frame parentFrame = new javax.swing.JFrame();
+        MusicaPlayer musicDialog = new MusicaPlayer(parentFrame, true, "");
+        musicDialog.setVisible(true);
+
+
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+
+        //calculadora
+        if (!calculadora) {
+            Calculadora_uno calc = new Calculadora_uno();
+            calc.setVisible(true);
+            this.calculadora = true;
+            calc.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    calculadora = false;
+                }
+            });
+        }
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        FormRegistro form = new FormRegistro();
+        form.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -351,7 +381,7 @@ public class Escritorio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Escritorio().setVisible(true);
+                new Escritorio("").setVisible(true);
             }
         });
     }
@@ -373,7 +403,6 @@ public class Escritorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

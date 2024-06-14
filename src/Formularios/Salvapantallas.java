@@ -56,9 +56,8 @@ public class Salvapantallas extends javax.swing.JFrame {
             @Override
             public void keyTyped(KeyEvent e) {
                 // Acción a realizar cuando se presiona una tecla
-                System.out.println("Tecla presionada: " + e.getKeyChar());
-                
-                Escritorio inicio = new Escritorio();
+ 
+                Inicio inicio = new Inicio();
                 inicio.setVisible(true);
                 dispose(); // Cierra la ventana de inicio
             }
